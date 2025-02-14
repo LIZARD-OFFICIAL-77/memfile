@@ -105,7 +105,7 @@ class __memoryopen:
             else:
                 raise IOError("Attempted to use memoryopen() on a symlink not created with memoryopen().")    
         
-        self.__file: builtin_io = open(self.__dir,self._opmode,*self._args,*self._kwargs)
+        self.__file: BuiltinIO = open(self.__dir,self._opmode,*self._args,*self._kwargs)
     
     def unlink(self):
         """"""        
@@ -162,7 +162,7 @@ class __memoryopen:
 
 
 
-def memoryopen(*args,**kwargs) -> builtin_io:
+def memoryopen(*args,**kwargs) -> BuiltinIO:
     """        
     Backwards-compatible wrapper for built-in open() that uses RAM for file contents.
     Only works on *Nix platforms.
