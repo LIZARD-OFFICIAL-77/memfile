@@ -44,7 +44,7 @@ from typing import (
 if TYPE_CHECKING:
     from _typeshed import WriteableBuffer, StrOrBytesPath
 
-builtin_io = Union[BufferedRandom, BufferedReader, BufferedWriter, FileIO, TextIOWrapper, BinaryIO, IO[Any]]
+BuiltinIO = Union[BufferedRandom, BufferedReader, BufferedWriter, FileIO, TextIOWrapper, BinaryIO, IO[Any]]
 
 ##################################################
 
