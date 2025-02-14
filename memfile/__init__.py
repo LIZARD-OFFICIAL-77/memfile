@@ -48,7 +48,7 @@ builtin_io = Union[BufferedRandom, BufferedReader, BufferedWriter, FileIO, TextI
 
 ##################################################
 
-class PlatformError: pass
+class PlatformError(BaseException): pass
 
 def compat_check():
     if not Path("/dev/shm").is_dir():
@@ -58,9 +58,10 @@ def remove(path: StrOrBytesPath):
     os.remove(os.path.realpath(path))
     os.remove(path)
 
+
+compat_check()
 class __memoryopen:
-    def __init__(self,dir_: str,op_: str = "r",*args,**kwargs): 
-        compat_check()       
+    def __init__(self,dir_: str,op_: str = "r",*args,**kwargs):        
         self._dir = dir_
         self._args = args
         self._opmode = op_
